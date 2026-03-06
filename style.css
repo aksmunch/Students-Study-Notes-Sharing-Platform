@@ -1,0 +1,228 @@
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+#profileEdit input, 
+#profileEdit textarea {
+    width: 100%;
+    margin-bottom: 15px;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+}
+#profileEdit button {
+    width: 100%;
+    margin-bottom: 10px;
+}
+body {
+    background: linear-gradient(-45deg, #ff6ec4, #7873f5, #42e695, #ff9a9e);
+    background-size: 400% 400%;
+    animation: gradientBG 12s ease infinite;
+    transition: 0.3s; min-height: 100vh;
+}
+
+body.dark {
+    background: linear-gradient(-45deg, #141e30, #243b55, #000, #434343);
+    color: white;
+}
+
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.navbar {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 15px 40px; background: rgba(255, 255, 255, 0.9);
+    position: sticky; top: 0; z-index: 1000; border-radius: 0 0 20px 20px;
+}
+/* Toast Notification */
+
+
+body.dark .navbar { background: rgba(30, 30, 47, 0.9); }
+
+.nav-links a { margin-left: 15px; cursor: pointer; text-decoration: none; color: inherit; font-weight: 500; }
+
+.page { display: none; padding: 40px; }
+.active { display: block; }
+
+.cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; }
+
+.card {
+    background: rgba(255, 255, 255, 0.9); padding: 20px;
+    border-radius: 15px; box-shadow: 0 8px 20px rgba(0,0,0,0.1); margin-bottom: 15px;
+}
+body.dark .card { background: rgba(44, 44, 84, 0.9); }
+
+/* --- ACTION BUTTONS --- */
+.note-actions {
+    display: flex; justify-content: space-between; align-items: center;
+    margin-top: 15px; padding-top: 10px; border-top: 1px solid rgba(0,0,0,0.1);
+}
+.action-btn {
+    background: transparent; border: none; cursor: pointer;
+    font-size: 0.9rem; color: inherit; display: flex; align-items: center; gap: 5px; transition: 0.2s;
+}
+.action-btn:hover { color: #6a5cff; transform: scale(1.1); }
+
+.btn-primary { background: #6a5cff; color: white; border: none; padding: 10px 20px; border-radius: 20px; cursor: pointer; }
+.btn-edit { background: #444; color: white; border: none; padding: 10px 20px; border-radius: 20px; cursor: pointer; }
+
+.hero-screenshot-style {
+    background: linear-gradient(90deg, #7873f5, #a366ff);
+    padding: 50px 20px; border-radius: 15px; text-align: center; color: white;
+}
+.search-bar-custom {
+    display: flex; background: white; max-width: 650px; margin: 20px auto 0;
+    border-radius: 50px; padding: 4px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+.search-bar-custom input {
+    flex: 1; border: none; padding: 12px 25px; outline: none; font-size: 1rem; border-radius: 50px 0 0 50px;
+}
+.search-bar-custom button {
+    background: #1a1a1a; color: white; border: none; padding: 0 35px; border-radius: 50px; cursor: pointer; font-weight: 600;
+}
+
+/* Messaging */
+.messaging-container { display: flex; gap: 20px; height: 60vh; }
+.sidebar-list { flex: 1; background: rgba(255,255,255,0.3); border-radius: 15px; padding: 10px; overflow-y: auto; }
+.list-item { padding: 15px; cursor: pointer; border-radius: 10px; margin-bottom: 5px; background: rgba(255,255,255,0.5); }
+.list-item.active-item { background: #6a5cff; color: white; }
+.chat-area { flex: 3; background: rgba(255,255,255,0.8); border-radius: 15px; display: flex; flex-direction: column; overflow: hidden; }
+.chat-messages { flex: 1; padding: 20px; overflow-y: auto; display: flex; flex-direction: column; gap: 10px; }
+.message { padding: 10px 15px; border-radius: 15px; max-width: 70%; }
+.sent { background: #6a5cff; color: white; align-self: flex-end; }
+.received { background: #ddd; color: #333; align-self: flex-start; }
+
+
+
+.sidebar-list { 
+    flex: 1; 
+    background: rgba(255,255,255,0.2); 
+    border-radius: 15px; 
+    padding: 10px; 
+    overflow-y: auto; 
+}
+
+.list-item { 
+    padding: 15px; 
+    cursor: pointer; 
+    border-radius: 10px; 
+    margin-bottom: 8px; 
+    background: rgba(255,255,255,0.5); 
+    transition: 0.3s;
+}
+
+.list-item:hover { background: rgba(106, 92, 255, 0.2); }
+.active-item { background: #6a5cff !important; color: white !important; }
+
+.chat-area { 
+    flex: 3; 
+    background: rgba(255,255,255,0.9); 
+    border-radius: 15px; 
+    display: flex; 
+    flex-direction: column; 
+}
+
+.chat-header { 
+    padding: 15px; 
+    font-weight: bold; 
+    border-bottom: 1px solid #ddd; 
+    color: #333;
+}
+
+.chat-messages { 
+    flex: 1; 
+    padding: 20px; 
+    overflow-y: auto; 
+    display: flex; 
+    flex-direction: column; 
+    gap: 10px; 
+}
+
+.message { 
+    padding: 10px 15px; 
+    border-radius: 15px; 
+    max-width: 70%; 
+    word-wrap: break-word;
+}
+/* Notification Toast */
+
+@keyframes slideIn { from { transform: translateX(100%); } to { transform: translateX(0); } }
+
+/* Delete Button */
+.btn-delete { background: #ff4d4d; color: white; border: none; padding: 5px 10px; border-radius: 5px; cursor: pointer; font-size: 0.8rem; margin-top: 5px; }
+
+/* Comment Section */
+.comment-box { background: rgba(0,0,0,0.05); padding: 10px; border-radius: 8px; margin-top: 10px; font-size: 0.85rem; }
+.comment-item { border-bottom: 1px solid #ddd; padding: 5px 0; }
+body.dark .comment-box { background: rgba(255,255,255,0.1); }
+
+.sent { 
+    background: #6a5cff; 
+    color: white; 
+    align-self: flex-end; 
+    border-bottom-right-radius: 2px;
+}
+.messaging-container { display: flex; gap: 20px; height: 50vh; }
+.sidebar-list { flex: 1; background: rgba(255,255,255,0.3); border-radius: 15px; padding: 10px; overflow-y: auto; }
+.list-item { padding: 15px; cursor: pointer; border-radius: 10px; margin-bottom: 5px; background: rgba(255,255,255,0.5); }
+.list-item.active-item { background: #6a5cff; color: white; }
+.chat-area { flex: 3; background: rgba(255,255,255,0.8); border-radius: 15px; display: flex; flex-direction: column; overflow: hidden; }
+.chat-messages { flex: 1; padding: 20px; overflow-y: auto; display: flex; flex-direction: column; gap: 10px; }
+.message { padding: 10px 15px; border-radius: 15px; max-width: 70%; background: #6a5cff; color: white; align-self: flex-end; }
+/* Ensure the modal pops up and centers correctly */
+.modal {
+    display: none; /* Stays hidden by default */
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.8); /* Darkened background */
+    z-index: 9999; /* Always on top */
+    justify-content: center; align-items: center;
+}
+.modal { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); justify-content: center; align-items: center; }
+.modal-content { background: white; padding: 40px; border-radius: 20px; width: 350px; text-align: center; }
+input, textarea, select { width: 100%; padding: 12px; margin-top: 10px; border-radius: 10px; border: 1px solid #ddd; outline: none; }
+/* This makes the purple pop-up alert work */
+.notification {
+    position: fixed;
+    top: 70px; /* Adjust this value to move it higher or lower */
+    right: 20px;
+    z-index: 9999;
+   
+    transform: translateX(-50%); /* Centers it horizontally */
+    background: #6a5cff;
+    color: white;
+    padding: 12px 30px;
+    border-radius: 50px; /* Makes it a pill shape */
+    display: none;
+   
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);font-weight: 600;
+    font-weight: 600;
+    
+}
+
+/* This styles the comment box so it doesn't look messy */
+.comment-box { 
+    background: #f9f9f9; padding: 10px; border-radius: 10px; 
+    margin-top: 10px; font-size: 0.85rem; color: #333; border-bottom: 1px solid #eee;
+    padding: 4px 0;
+}
+.action-btn { 
+    display: flex !important; 
+    align-items: center !important; 
+    gap: 5px !important; 
+}
+
+/* The red delete button */
+.btn-delete { 
+    background: #ff4757; color: white; border: none; 
+    padding: 5px 10px; border-radius: 5px; cursor: pointer; 
+}
+.dropdown-content {
+    display: none; /* Hidden by default */
+    position: absolute; top: 60px; right: 20px;
+    background: white; border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    width: 250px; padding: 15px; z-index: 9999;
+    color: #333;
+}
+.dropdown-content h3 { margin-bottom: 10px; border-bottom: 1px solid #eee; }
+.dropdown-content button { margin-top: 10px; width: 100%; cursor: pointer; }
